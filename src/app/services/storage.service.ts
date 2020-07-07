@@ -8,7 +8,6 @@ export class StorageService {
   constructor() { 
   	let data = JSON.parse(localStorage.getItem('results'))
   	this.results = data ? data : []
-  	console.log(this.results, "$$$$");
   }
 
   getById(){

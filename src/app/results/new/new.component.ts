@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../../services/storage.service'
 
+import {ActivatedRoute, Router} from '@angular/router';
+
+
 @Component({
   selector: 'app-new',
   templateUrl: './new.component.html',
@@ -20,7 +23,9 @@ export class NewComponent implements OnInit {
 
   result:any = {}
 
-  constructor(private storageService: StorageService) {
+  constructor(
+    private storageService: StorageService, 
+    private router: Router) {
 
 
   }
@@ -31,6 +36,7 @@ export class NewComponent implements OnInit {
 
   onSubmit() {
     this.storageService.add(this.result)
+    this.router.navigate([''])
   }
 
 }
