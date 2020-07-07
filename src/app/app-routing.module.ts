@@ -5,6 +5,7 @@ import {ResultsComponent} from './results/results/results.component'
 
 
 const routes: Routes = [
+{path: '', component: ResultsComponent},
 {path:'new', component:NewComponent},
 {path:'results', component:ResultsComponent},
 ];
