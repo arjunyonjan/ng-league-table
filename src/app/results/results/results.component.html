@@ -1,0 +1,8 @@
+<h2>Results</h2>
+
+<div *ngFor="let result of groupResults">
+	<h4>{{result.date}}</h4>
+	<p *ngFor="let game of result.games"> 
+		<span [ngClass]="{'winner': game.score1 > game.score2}">{{game.team1.teamName}} ({{game.score1}})</span> vs <span [ngClass]="{'winner': game.score2 > game.score1}">{{game.team2.teamName}} ({{game.score2}})</span>
+	</p>
+</div>

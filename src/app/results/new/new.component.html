@@ -1,0 +1,47 @@
+<h2>New Result</h2>
+<form (submit)="onSubmit()" >
+	
+	<div class="form-group">
+		<label for="">Team Name</label>
+
+		 <div class="form-group">
+            <label for=""></label>
+            <select class="form-control input-sm" name="team1" [(ngModel)]="result.team1" >
+                <option *ngFor="let team of teams" [ngValue]="team">{{team.teamName}}</option>
+            </select>
+        </div>
+	</div>
+	<div class="form-group">
+		<label for="">Score</label>
+		<input type="text" class="form-control form-control-sm" name="score1" [(ngModel)]="result.score1" >
+	</div>
+	
+
+	<hr>
+
+	<div class="form-group">
+		<label for="">Team Name</label>
+
+		 <div class="form-group">
+            <label for=""></label>
+            <select class="form-control input-sm" name="team2" [(ngModel)]="result.team2" >
+                <option *ngFor="let team of teams" [ngValue]="team">{{team.teamName}}</option>
+            </select>
+        </div>
+	</div>
+	
+
+	<div class="form-group">
+		<label for="">Score</label>
+		<input type="text" class="form-control form-control-sm" name="score2" [(ngModel)]="result.score2" >
+	</div>
+
+	<div class="form-group">
+				<label for=""></label>
+				<input type="date" class="form-control form-control-sm" [(ngModel)]="result.date" name="date" >
+			</div>
+	<button class="btn btn-sm" type="submit">Enter</button>
+
+</form>
+
+{{result | json }}

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-league';
+  title = 'ng-league'; 
+
+  constructor(){
+  	// DBService.setup()
+  }
+
+  ngOnInit(): void {
+
+
+
+  }
 }
