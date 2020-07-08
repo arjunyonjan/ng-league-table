@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../../services/storage.service'
-
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,16 +10,12 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent implements OnInit {
+  mode = "new"
+  
+  errors = false;
+  errorMessage;
 
-  teams = [
-    {teamName: "Chelsea", teamId: 1},
-    {teamName: "Tottenham Hotspur", teamId: 2},
-    {teamName: "Manchester City", teamId:3},
-    {teamName: "Liverpool", teamId: 4},
-    {teamName: "Arsenal", teamId: 5},
-    {teamName: "Manchester United", teamId: 6},
-    {teamName: "Everton", teamId: 7}
-  ]
+  teams = []
 
   result:any = {}
 
@@ -27,16 +23,27 @@ export class NewComponent implements OnInit {
     private storageService: StorageService, 
     private router: Router) {
 
-
+    this.teams = storageService.teams
   }
 
   ngOnInit(): void {
 
   }
 
-  onSubmit() {
-    this.storageService.add(this.result)
-    this.router.navigate([''])
-  }
+  onSubmit(resultForm) {
 
+    if(resultForm.form.valid){
+       if(this.result.team1 == this.result.team2){
+
+          this.errors = true;
+          this.errorMessage = "Both teams can not be same";
+          return;
+        }else{
+          this.errors = false;
+          this.errorMessage = ""
+        }
+      this.storageService.add(this.result)
+      this.router.navigate([''])
+    }
+  }
 }

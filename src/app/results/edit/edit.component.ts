@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import { StorageService } from '../../services/storage.service'
 
 @Component({
   selector: 'app-edit',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, 
+  	private router: Router,
+  	private storageService: StorageService) {}
+
+  mode = 'edit'
 
   ngOnInit(): void {
+
+  	
   }
 
 }

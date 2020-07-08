@@ -15,15 +15,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
 
-  	let teams = [
-	    {teamName: "Chelsea", teamId: 1},
-	    {teamName: "Tottenham Hotspur", teamId: 2},
-	    {teamName: "Manchester City", teamId:3},
-	    {teamName: "Liverpool", teamId: 4},
-	    {teamName: "Arsenal", teamId: 5},
-	    {teamName: "Manchester United", teamId: 6},
-	    {teamName: "Everton", teamId: 7}
-	  ]
+  	let teams = this.storageService.teams;
 
 	let results = this.storageService.results
 
@@ -35,7 +27,7 @@ export class TableComponent implements OnInit {
 
 		if(!tabledata[teamId]){
 				tabledata[teamId] = {
-						teamName: team.teamName,
+						team: teamId,
 					  	played: 0,
 					  	win: 0,
 					  	lose: 0,
@@ -46,14 +38,14 @@ export class TableComponent implements OnInit {
 				}
 
 
+		//points calculation
 		results.forEach((result)=>{
 
-		if(result.team1.teamId == teamId || result.team2.teamId == teamId){
+			if(result.team1 == teamId || result.team2 == teamId){
 				
-
 				tabledata[teamId].played ++;
 
-				if(result.team1.teamId == teamId){
+				if(result.team1 == teamId){
 
 					tabledata[teamId].score = tabledata[teamId].score +  parseInt(result.score1); 
 
@@ -61,7 +53,6 @@ export class TableComponent implements OnInit {
 						tabledata[teamId].draw++;
 						tabledata[teamId].points ++;
 						return;
-
 					}
 
 					if(result.score1 > result.score2){
@@ -73,16 +64,14 @@ export class TableComponent implements OnInit {
 				}
 
 
-				if(result.team2.teamId == teamId){
+				if(result.team2 == teamId){
 
 					tabledata[teamId].score = tabledata[teamId].score + parseInt(result.score2)
 
 					if(result.score1 === result.score2){
 						tabledata[teamId].draw++
 						tabledata[teamId].points ++;
-
 						return
-
 					}
 
 
@@ -93,28 +82,17 @@ export class TableComponent implements OnInit {
 						tabledata[teamId].lose++;
 					}
 				}
-
 				
 			}	//end if
 
-
-
-
 		})
-
-
-		
 
 	})
 
 	console.log(tabledata, "---table data----$$$$");
 
 	 for(let i in tabledata){
-
-
 	 	this.tabledata.push(tabledata[i])
-
-
 	 }
   }
 

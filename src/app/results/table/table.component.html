@@ -17,7 +17,7 @@
         <tbody>
         <tr *ngFor="let data of tabledata">
             <td>pos</td>
-            <td>{{data.teamName}}</td>
+            <td>{{data.team | teamName}}</td>
             <td>{{data.played}}</td>
             <td>{{data.win}}</td>
             <td>{{data.draw}}</td>

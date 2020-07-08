@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../../services/storage.service'
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class ResultsComponent implements OnInit {
   results:any = []
   groupResults = []
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: StorageService, private router: Router) {
 
   }
 
@@ -48,8 +49,7 @@ export class ResultsComponent implements OnInit {
     return sortedResults
   }
 
-  read(){
-  	console.log("rading...", "$$$$");
+  editResult(gameId){
+    this.router.navigate(['edit', gameId]);
   }
-
 }
