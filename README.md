@@ -1,26 +1,30 @@
 # Angular League Table (Football)
 Submitted as a Angular Practical Test for ITONICS.
 
-## Development server
+## Hosting and Repo
+Github = https://github.com/arjunyonjan/ng-league-table
+Heruko = https://angular-league-table.herokuapp.com/
+Automatic deployment enabled in heruko and linked to github repository. Any commits will automatically deploy the code to the heruko server.
+In hereko the production build dist folder is being served through node server. This is the way hereko works.
 
+## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Components
+- Results
+- New Result | Edit Result
+- Form (Shared Component) for creating and editing the result
+- League Table Component
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Services
+- StorageService to handle the results data
+- team data and results data is being stored
 
-## Running end-to-end tests
+## Pipes
+- "teamName" pipe to retrieve the name of the football team with given id
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Database
+- database is a stringified JSON data in localStorage namely "results". "StorageService" module will keep the track of this database. 
