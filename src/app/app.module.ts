@@ -9,6 +9,7 @@ import { NewComponent } from './results/new/new.component';
 import { ResultsComponent } from './results/results/results.component';
 import { EditComponent } from './results/edit/edit.component';
 import { FormComponent } from './results/form/form.component';
+import { TableComponent } from './results/table/table.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormComponent } from './results/form/form.component';
     NewComponent,
     ResultsComponent,
     EditComponent,
-    FormComponent
+    FormComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
