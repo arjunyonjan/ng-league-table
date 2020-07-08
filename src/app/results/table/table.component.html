@@ -15,8 +15,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let data of tabledata">
-            <td>pos</td>
+        <tr *ngFor="let data of tabledata; let i = index">
+            <td>{{i}}</td>
             <td>{{data.team | teamName}}</td>
             <td>{{data.played}}</td>
             <td>{{data.win}}</td>

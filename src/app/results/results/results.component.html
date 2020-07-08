@@ -11,7 +11,7 @@
 			vs 
 			<span [ngClass]="{'winner': game.score2 > game.score1}">{{game.team2 | teamName}} ({{game.score2}})</span>
 		</p>
-		<span class="btn-remove">✘</span>
+		<span class="btn-remove" (click)="remove(game)">✘</span>
 	</div>
 	<div class="clearfix"></div>
 </div>

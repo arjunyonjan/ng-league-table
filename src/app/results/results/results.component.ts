@@ -18,10 +18,18 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.results = this.storageService.results;
-    this.groupResults = this.groupData()
+    // this.results = this.storageService.results;
+    // this.groupResults = this.groupData()
+
+    this.getResults()
   }
 
+  getResults(){
+
+    this.results = this.storageService.results;
+    this.groupResults = this.groupData()
+
+  }
 
   groupData(){
     //grouping by date
@@ -51,5 +59,12 @@ export class ResultsComponent implements OnInit {
 
   editResult(gameId){
     this.router.navigate(['edit', gameId]);
+  }
+
+  remove(game){
+    if(confirm("Are you sure you want to delete this result?")){
+      this.storageService.delete(game);
+      this.getResults();
+    }
   }
 }

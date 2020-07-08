@@ -58,9 +58,15 @@ export class StorageService {
     //overwrite
     this.results[index] = result
     this.updateLocalStorage()
+
   }
 
-  delete(){}
+  delete(result){
+    let index = this.getIndex(result.id)
+    this.results.splice(index,1);
+    this.updateLocalStorage()
+
+  }
 
   updateLocalStorage(){
   	localStorage.setItem('results', JSON.stringify(this.results));
